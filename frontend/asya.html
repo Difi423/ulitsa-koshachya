@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="История питомца и знакомство с ним.">
+    <title>Питомец — Улица Кошачья</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">К содержимому</a>
+    <header class="site-header">
+        <a class="brand" href="index.html">
+            <img class="brand-logo" src="images/logo.png" width="76" height="76" alt="Котик под крышей с сердечком">
+            <span class="brand-text">
+                <span class="brand-name">Улица Кошачья</span>
+                <span class="brand-caption">Место, где начинается путь домой</span>
+            </span>
+        </a>
+        <nav class="main-nav" aria-label="Основное меню">
+            <a href="index.html">Главная</a>
+            <a href="catalog.html">Наши кошки и коты</a>
+            <a href="application.html">Знакомство</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+    <main id="main-content" tabindex="-1">
+        <noscript><p class="notice">Для загрузки данных и работы форм включите JavaScript в браузере.</p></noscript>
+<div class="data-notification">
+<p id="data-status" class="small-text" role="status" aria-live="polite">Загружаем сведения о питомцах…</p>
+<button id="data-retry" class="button button-secondary" type="button" hidden>Повторить загрузку</button>
+</div>
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="index.html">Главная</a><span aria-hidden="true">/</span><a href="catalog.html">Питомцы</a><span aria-hidden="true">/</span><span>Питомец</span>
+        </nav>
+        <article class="pet-profile" data-pet="asya" data-pet-id="6" hidden>
+<img class="profile-photo" src="images/logo.png" width="640" height="640" alt="Фотография питомца">
+<div class="profile-info"><p class="eyebrow"></p><h1>Питомец</h1><p class="lead"></p>
+<dl class="pet-facts"><div><dt>Возраст</dt><dd></dd></div><div><dt>Пол</dt><dd></dd></div><div><dt>Характер</dt><dd></dd></div><div><dt>Окрас</dt><dd></dd></div></dl>
+<a class="button" aria-disabled="true">Записаться на знакомство</a><p class="small-text"></p></div>
+<div class="profile-story"><section aria-labelledby="history-title"><h2 id="history-title">История</h2><p></p></section>
+<section aria-labelledby="home-title"><h2 id="home-title">Какой дом подойдёт</h2><p></p></section>
+<section aria-labelledby="care-title"><h2 id="care-title">Уход и привычки</h2><p></p></section></div></article>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img class="footer-logo" src="images/logo.png" width="50" height="50" alt="Логотип приюта: кошка под крышей">
+                <p>Улица Кошачья — место, где начинается путь домой.</p>
+</div>
+            <nav class="footer-links" aria-label="Дополнительные страницы"><a href="contacts.html">Контакты и обратная связь</a><a href="adopted.html">Уже дома</a><a href="favorites.html">Избранное (<span data-favorite-count>0</span>)</a></nav>
+        </div>
+    </footer>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

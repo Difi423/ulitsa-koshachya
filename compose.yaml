@@ -1,0 +1,35 @@
+name: ulitsa-koshachya
+
+services:
+  app:
+    build: .
+    image: ulitsa-koshachya:pr4
+    init: true
+    restart: unless-stopped
+    environment:
+      SHELTER_ENV: development
+      SHELTER_HOST: 0.0.0.0
+      SHELTER_PORT: "8000"
+      SHELTER_DB: /app/data/shelter.sqlite3
+      SHELTER_UPLOADS_DIR: /app/data/uploads
+      SHELTER_SLOT_CAPACITY: ${SHELTER_SLOT_CAPACITY:-1}
+      SHELTER_SECURE_COOKIES: "0"
+      SHELTER_TRUSTED_PROXIES: ""
+      SHELTER_LOG_LEVEL: ${SHELTER_LOG_LEVEL:-info}
+      WEATHER_USER_AGENT: ${WEATHER_USER_AGENT:-UlitsaKoshachya/4.0}
+    ports:
+      - "127.0.0.1:${HTTP_PORT:-8000}:8000"
+    volumes:
+      - shelter-data:/app/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  shelter-data:

@@ -1,0 +1,1014 @@
+/* 1. Шрифты и общие правила */
+@font-face {
+    font-family: "Caveat";
+    src: url("../fonts/caveat.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url("../fonts/nunito.ttf") format("truetype");
+    font-weight: 200 1000;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Padding и рамка входят в заданную ширину. */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Nunito", Arial, sans-serif;
+    line-height: 1.6;
+    color: #38251d;
+    background-color: #fffaf5;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: #784019;
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    color: #4d2811;
+}
+
+/* Контур при выборе элемента клавишей Tab. */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible {
+    outline: 3px solid #38251d;
+    outline-offset: 4px;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: clamp(30px, 4vw, 44px);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: clamp(25px, 3vw, 32px);
+}
+
+h3 {
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+p {
+    margin: 0 0 16px;
+}
+
+.skip-link {
+    display: block;
+    height: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    background-color: #38251d;
+    color: #ffffff;
+    text-align: center;
+}
+
+.skip-link:focus {
+    height: auto;
+    padding: 12px 20px;
+}
+
+/* Скрытая подпись для программ чтения с экрана, не часть макета. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* 2. Шапка и меню */
+.site-header {
+    padding: 22px 16px;
+    background-color: #ffad66;
+    border-bottom: 3px solid #ed9148;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    color: #38251d;
+    text-decoration: none;
+}
+
+.brand-logo {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.brand-text {
+    min-width: 0;
+}
+
+.brand-name {
+    display: block;
+    font-family: "Caveat", cursive;
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.brand-caption {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.brand:focus-visible {
+    border-radius: 8px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 1120px;
+    margin: 20px auto 0;
+}
+
+.main-nav a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 20px;
+    color: #38251d;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.main-nav a:hover, .main-nav a[aria-current="page"] {
+    background-color: #fff8ed;
+}
+
+/* 3. Разделы и приветствие */
+main {
+    max-width: 1168px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+}
+
+.hero {
+    max-width: 824px;
+    margin: 24px auto 64px;
+    padding: 44px 40px;
+    background-color: #fff3e6;
+    border: 1px solid #efcfad;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px #38251d14;
+    /* Полупрозрачная заливка над фото, текст остаётся непрозрачным. */
+    background-image:
+    linear-gradient(rgba(239, 207, 173, 0.86), rgba(239, 207, 173, 0.86)),
+    url("../images/shelter.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.hero > p:not(.eyebrow) {
+    max-width: 580px;
+    font-size: 18px;
+}
+
+.eyebrow {
+    margin-bottom: 10px;
+    color: #6f3d1c;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.page-section {
+    margin-top: 56px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-bottom: 24px;
+}
+
+.section-heading h2, .section-heading > p {
+    margin-bottom: 0;
+}
+
+.text-link, .card-link {
+    font-weight: 800;
+}
+
+.page-heading {
+    max-width: 760px;
+    margin: 16px 0 32px;
+}
+
+.page-heading > p:last-child {
+    font-size: 18px;
+}
+
+.small-text {
+    color: #69564b;
+    font-size: 14px;
+}
+
+.notice {
+    padding: 16px 18px;
+    border-left: 4px solid #dc944f;
+    border-radius: 0 12px 12px 0;
+    background-color: #fff0dc;
+    font-size: 14px;
+}
+
+/* 4. Ссылки-кнопки и кнопки форм */
+.button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 22px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    background-color: #ffad66;
+    color: #38251d;
+    font: inherit;
+    font-weight: 800;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #ff9842;
+    color: #38251d;
+}
+
+.button-secondary {
+    border-color: #d8b48c;
+    background-color: #fff3e6;
+}
+
+.button-secondary:hover {
+    background-color: #ffe3c3;
+}
+
+.button:disabled {
+    background-color: #e9d5be;
+    color: #665347;
+    cursor: not-allowed;
+}
+
+/* 5. Карточки питомцев и помощь */
+.pets-grid, .help-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.pet-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #efcfad;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 18px #38251d08;
+}
+
+.pet-card > img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.pet-card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 22px;
+}
+
+.pet-meta {
+    margin-bottom: 8px;
+    color: #69564b;
+    font-size: 14px;
+}
+
+.pet-card h3 {
+    font-size: 27px;
+}
+
+.card-link {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 4px 0;
+}
+
+.help-card {
+    padding: 26px;
+    border: 1px solid #efcfad;
+    border-radius: 20px;
+    background-color: #fff3e6;
+}
+
+.help-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* 6. Страница питомца */
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 28px;
+    font-size: 14px;
+}
+
+.pet-profile {
+    padding: 32px;
+    background-color: #fff3e6;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 40px;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px #38251d14;
+}
+
+.profile-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.profile-info {
+    padding: 12px 0;
+    min-width: 0;
+}
+
+.lead {
+    font-size: 19px;
+}
+
+.pet-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin: 28px 0;
+}
+
+.pet-facts dt, .contact-list dt {
+    color: #69564b;
+    font-size: 14px;
+}
+
+.pet-facts dd, .contact-list dd {
+    margin: 4px 0 0;
+    font-weight: 700;
+}
+
+.profile-info .small-text {
+    margin-top: 12px;
+}
+
+.profile-story {
+    grid-column: 1 / -1;
+    max-width: 800px;
+}
+
+.profile-story section {
+    margin-bottom: 32px;
+}
+
+/* 7. Формы, фильтры, заявка, контакты */
+.filter-panel, .form-panel, .contact-panel, .side-panel {
+    min-width: 0;
+    padding: 28px;
+    border: 1px solid #efcfad;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+
+.filter-panel {
+    background-color: #fff3e6;
+}
+
+.filter-panel h2 {
+    font-size: 24px;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.filter-actions {
+    grid-column: 1 / -1;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    margin-bottom: 20px;
+}
+
+.filter-grid .field {
+    margin-bottom: 0;
+}
+
+label, legend {
+    font-weight: 700;
+}
+
+input, select, textarea {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid #b99b80;
+    border-radius: 10px;
+    background-color: #fffdfa;
+    color: #38251d;
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #78695e;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 24px 0;
+    padding: 20px 0 0;
+    border: 0;
+    border-top: 1px solid #efcfad;
+}
+
+legend {
+    padding: 0 10px 0 0;
+    font-size: 19px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.checkbox-label input {
+    width: 20px;
+    height: 20px;
+    min-height: 20px;
+    margin: 2px 0 0;
+    flex-shrink: 0;
+    accent-color: #784019;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-actions .button {
+    margin-top: 0;
+}
+
+.action-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 28px;
+}
+
+.side-panel {
+    background-color: #fff3e6;
+}
+
+.side-panel h2 {
+    font-size: 25px;
+}
+
+.side-panel h3 {
+    margin-top: 28px;
+    font-size: 20px;
+}
+
+.steps {
+    padding-left: 22px;
+}
+
+.steps li {
+    margin-bottom: 14px;
+    padding-left: 4px;
+}
+
+.selected-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 28px;
+    margin-top: 28px;
+}
+
+address {
+    font-style: normal;
+    overflow-wrap: anywhere;
+}
+
+.contact-list {
+    display: grid;
+    gap: 24px;
+    margin: 0 0 32px;
+}
+
+/* 8. Подвал */
+.site-footer {
+    padding: 28px 24px;
+    background-color: #f2e7dc;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 0;
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* 9. Уменьшение числа колонок на узких экранах */
+@media (max-width: 900px) {
+    .filter-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .action-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 760px) {
+    .pets-grid, .help-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pet-profile, .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .hero {
+        padding: 32px;
+    }
+
+}
+
+@media (max-width: 560px) {
+    main {
+        padding: 24px 16px 40px;
+    }
+
+    .site-header {
+        padding: 20px 16px;
+    }
+
+    .brand {
+        gap: 12px;
+    }
+
+    .brand-logo {
+        width: 58px;
+        height: 58px;
+    }
+
+    .brand-name {
+        font-size: 34px;
+    }
+
+    .brand-caption {
+        font-size: 12px;
+    }
+
+    .main-nav a {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+
+    .hero {
+        margin: 8px auto 40px;
+        padding: 28px 24px;
+    }
+
+    .hero > p:not(.eyebrow) {
+        font-size: 16px;
+    }
+
+    .pets-grid, .help-grid, .filter-grid, .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-section {
+        margin-top: 40px;
+    }
+
+    .filter-panel, .form-panel, .contact-panel, .side-panel {
+        padding: 22px;
+    }
+
+    .form-grid {
+        gap: 0;
+    }
+
+    .site-footer {
+        padding: 24px 16px;
+    }
+
+    .footer-brand {
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .footer-brand p {
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 560px) {
+    .pet-profile { padding: 22px; }
+}
+
+/* ПР 2: динамические состояния, формы и погода */
+[hidden] {
+    display: none !important;
+}
+.data-notification .button {
+    margin: 0 0 24px;
+}
+.search-field {
+    grid-column: 1 / -1;
+}
+.field-error {
+    margin: 0;
+    color: #a52d20;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.checkbox-label + .field-error:not([hidden]) {
+    margin: -12px 0 24px;
+}
+[aria-invalid="true"] {
+    border-color: #a52d20;
+    outline-color: #a52d20;
+}
+.form-result {
+    margin-top: 24px;
+    padding: 22px;
+    border: 1px solid #9db291;
+    border-radius: 16px;
+    background-color: #f1f7eb;
+    overflow-wrap: anywhere;
+}
+.form-result h3 {
+    font-size: 23px;
+}
+.result-list {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+}
+.result-list dt {
+    color: #506048;
+    font-size: 14px;
+}
+.result-list dd {
+    margin: 2px 0 0;
+    white-space: pre-wrap;
+}
+.empty-state {
+    padding: 28px;
+    border: 1px dashed #d8b48c;
+    border-radius: 18px;
+    background-color: #fff3e6;
+}
+.weather-panel {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #d8b48c;
+}
+.weather-panel h3 {
+    margin-top: 0;
+}
+.weather-date {
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+.weather-facts {
+    display: grid;
+    gap: 12px;
+    margin: 18px 0;
+}
+.weather-facts dt {
+    font-size: 14px;
+    color: #69564b;
+}
+.weather-facts dd {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+}
+.weather-source {
+    margin-top: 16px;
+    font-size: 12px;
+}
+@media (max-width: 560px) {
+    .form-result { padding: 18px; }
+}
+
+/* 10. Личный кабинет и управление приютом */
+.account-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-top: 12px;
+    font-size: 14px;
+}
+.account-nav a, .text-button { color: #593018; }
+.account-nav [aria-current="page"] { font-weight: 800; }
+.text-button {
+    padding: 0;
+    background: none;
+    border: 0;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+    font: inherit;
+}
+.text-button:disabled { opacity: .6; cursor: wait; }
+.admin-login-page { max-width: 680px; }
+.admin-login-page .form-panel { margin: 0; }
+.admin-login-page .button { margin-top: 8px; }
+.application-filters { margin-top: 24px; }
+.record-list { display: grid; gap: 20px; }
+.record-card { min-width: 0; padding: 26px; background: #fff; border: 1px solid #f2c59f; border-radius: 18px; overflow-wrap: anywhere; }
+.record-card p { margin-bottom: 12px; }
+.record-heading { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+.record-heading h3 { margin: 0; }
+.status-badge { display: inline-block; width: fit-content; padding: 4px 12px; border-radius: 20px; background: #f6e6d5; color: #694321; font-size: 13px; font-weight: 700; }
+.status-new { background: #ffedcc; }
+.status-confirmed { background: #e7efdd; color: #35552c; }
+.status-completed { background: #e1ecea; color: #32534d; }
+.status-cancelled { background: #eeebe7; color: #655d55; }
+.user-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.curator-note { border-left: 3px solid #ed9148; padding-left: 14px; }
+.button-small { padding: 9px 16px; font-size: 14px; }
+.button[aria-disabled="true"] { opacity: .65; cursor: default; }
+.admin-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0 0 30px; }
+.admin-stats > div { padding: 24px; background: #fff3e6; border: 1px solid #f2c59f; border-radius: 18px; }
+.admin-stats strong { display: block; font-size: 36px; line-height: 1.2; margin-bottom: 8px; }
+.admin-stats span { color: #784019; }
+.admin-tabs { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; padding-bottom: 22px; border-bottom: 1px solid #f2c59f; }
+.admin-tabs button { padding: 11px 24px; border: 1px solid #d8ac86; border-radius: 24px; background: #fff; color: #593018; cursor: pointer; font: inherit; font-weight: 700; }
+.admin-tabs button[aria-pressed="true"] { background: #ffad66; border-color: #ffad66; }
+.admin-notice:empty { display: none; }
+.admin-notice:not(:empty) { padding: 16px 20px; background: #fff3e6; border-radius: 12px; }
+.admin-list-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; }
+.admin-list-toolbar .field { width: min(100%, 280px); }
+.admin-pet-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.admin-pet-row { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; padding: 18px; background: #fff; border: 1px solid #f2c59f; border-radius: 16px; min-width: 0; }
+.admin-pet-row > img { width: 88px; height: 88px; border-radius: 12px; object-fit: cover; }
+.admin-pet-info { flex: 1; min-width: 120px; overflow-wrap: anywhere; }
+.admin-pet-info > a { font-size: 20px; font-weight: 800; }
+.admin-pet-info > p { margin: 4px 0; }
+.row-actions { display: flex; gap: 8px; flex-wrap: wrap; width: 100%; }
+.pet-editor { margin-bottom: 32px; }
+.editor-photo { width: 160px; height: 160px; object-fit: cover; border-radius: 12px; margin-top: 12px; }
+.record-controls { display: grid; gap: 8px; padding-top: 16px; border-top: 1px solid #efdfcf; margin-top: 18px; }
+.record-controls select, .record-controls textarea { max-width: 100%; }
+.record-controls label { font-weight: 700; }
+.record-controls button { justify-self: start; margin-top: 6px; }
+input, select, textarea { min-width: 0; }
+.form-result { overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+    .admin-pet-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+    .admin-stats { grid-template-columns: 1fr; gap: 12px; }
+    .admin-stats > div { padding: 18px; display: flex; align-items: center; gap: 18px; }
+    .admin-stats strong { margin: 0; min-width: 44px; font-size: 30px; }
+    .record-card { padding: 20px; }
+    .admin-tabs { gap: 8px; }
+    .admin-tabs button { padding: 9px 15px; }
+    .account-nav { gap: 8px 16px; }
+}
+
+main h1, main h2, main h3, .pet-card, .profile-info { overflow-wrap: anywhere; }
+
+/* Галереи, избранное и рабочие разделы куратора. */
+.pet-card-visual { position: relative; }
+.pet-card-visual > a { display: block; }
+.pet-card-visual img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.favorite-button { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 1px solid #d9ab85; border-radius: 50%; background: #fffaf3; color: #673817; font-size: 30px; line-height: 1; font-family: inherit; cursor: pointer; }
+.pet-card-visual > .favorite-button { position: absolute; right: 12px; top: 12px; box-shadow: 0 2px 10px #38251d22; font-size: 30px; }
+.favorite-button[aria-pressed="true"] { background: #ffad66; border-color: #c77b3b; }
+.favorite-button:hover { background: #ffe8cb; }
+.favorite-inline { width: auto; height: auto; padding: 10px 16px; border-radius: 14px; font: inherit; font-weight: 700; margin-top: 12px; }
+.favorite-button:focus-visible, .gallery-thumbnail:focus-visible, .calendar-appointment:focus-visible { outline: 3px solid #784019; outline-offset: 3px; }
+.profile-gallery { min-width: 0; }
+.gallery-thumbnails { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.gallery-thumbnail { width: 68px; height: 68px; padding: 3px; border: 2px solid transparent; border-radius: 12px; background: #fffaf3; cursor: pointer; }
+.gallery-thumbnail[aria-pressed="true"] { border-color: #a85e21; }
+.gallery-thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 7px; }
+.adoption-story { background: #fffaf2; padding: 24px; border-radius: 18px; border: 1px solid #efcfad; }
+.adopted-grid .pet-card-body > p:not(.pet-meta):not(.small-text) { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.page-links { display: flex; flex-wrap: wrap; gap: 14px 28px; margin-top: 18px; font-weight: 700; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+#favorites-grid { margin-top: 24px; }
+.gallery-editor-panel, .adoption-editor { border: 1px solid #efcfad; border-radius: 16px; padding: 22px; margin: 24px 0; min-width: 0; }
+.gallery-editor-panel legend, .adoption-editor legend { padding: 0 8px; font-size: 19px; font-weight: 800; }
+.upload-controls { display: flex; align-items: end; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; }
+.upload-controls .field { flex: 1 1 260px; margin: 0; }
+.upload-controls .button { margin-bottom: 0; }
+input[type="file"] { padding: 10px; width: 100%; max-width: 100%; }
+.photo-editor-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(180px,1fr)); gap: 16px; }
+.photo-editor-card { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 12px; border: 1px solid #efdfcf; border-radius: 12px; background: #fffaf4; }
+.photo-editor-card > img { width: 100%; height: 140px; object-fit: cover; border-radius: 9px; }
+.photo-editor-card input { width: 100%; padding: 8px; font-size: 14px; }
+.photo-editor-card label { font-size: 14px; }
+.photo-editor-actions { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 13px; }
+.application-history { border-top: 1px solid #efdfcf; margin-top: 20px; padding-top: 16px; }
+.application-history summary { cursor: pointer; font-weight: 700; color: #784019; }
+.history-list { display: grid; gap: 14px; margin-top: 18px; }
+.history-event { border-left: 3px solid #e5a56b; padding-left: 16px; }
+.history-event p { margin-bottom: 7px; }
+.calendar-toolbar { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; margin: 24px 0; }
+.calendar-toolbar .field { width: 200px; margin: 0; }
+.calendar-scroll { max-width: 100%; overflow-x: auto; padding: 4px 0 16px; }
+.calendar-week { display: grid; grid-template-columns: repeat(7,minmax(155px,1fr)); gap: 10px; min-width: 1170px; }
+.calendar-day { min-width: 0; padding: 12px; background: #fff; border: 1px solid #efcfad; border-radius: 14px; }
+.calendar-day.is-today { border: 2px solid #d38749; padding: 11px; }
+.calendar-day h4 { font-size: 17px; margin: 0 0 10px; text-transform: capitalize; }
+.calendar-slot { padding: 12px 0; border-top: 1px solid #efdfcf; min-height: 100px; }
+.calendar-slot .small-text { font-size: 12px; margin-bottom: 10px; }
+.slot-time { font-size: 14px; font-weight: 800; margin: 0 0 6px; }
+.calendar-appointment { display: block; width: 100%; text-align: left; white-space: pre-line; overflow-wrap: anywhere; font: inherit; font-size: 12px; border: 1px solid #d8b58d; border-radius: 9px; padding: 9px; color: #38251d; background: #ffedcc; margin-top: 8px; cursor: pointer; }
+.calendar-appointment.status-confirmed { background: #e7efdd; }
+.calendar-appointment.status-completed { background: #e1ecea; }
+.calendar-conflict { font-size: 12px; color: #8c2d18; margin-top: 10px; font-weight: 700; }
+.statistics-filter { display: flex; flex-wrap: wrap; align-items: end; gap: 14px; margin: 24px 0; }
+.statistics-filter .field { width: min(100%,210px); margin: 0; }
+.report-stats { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 14px; margin: 24px 0; }
+.report-stats > div { padding: 20px; background: #fff3e6; border: 1px solid #efcfad; border-radius: 16px; }
+.report-stats strong { display: block; font-size: 32px; line-height: 1.2; }
+.report-stats span { display: block; font-size: 14px; margin-top: 8px; }
+.report-panel { min-width: 0; border: 1px solid #efcfad; border-radius: 18px; padding: 24px; background: #fff; margin: 20px 0; }
+.report-panel h3 { margin-top: 0; }
+.report-columns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.report-columns .report-panel { margin-top: 0; }
+#statistics-chart svg { width: 100%; height: auto; display: block; margin-bottom: 18px; }
+.chart-gridline { stroke: #ead9c7; stroke-width: 1; }
+.chart-label { fill: #6f4b30; font-size: 13px; font-family: inherit; }
+.chart-line { fill: none; stroke: #b45c20; stroke-width: 3; stroke-linejoin: round; }
+.chart-dot { fill: #b45c20; }
+.report-table { border-collapse: collapse; width: 100%; font-size: 14px; margin-top: 18px; }
+.report-table th,.report-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #ead9c7; }
+.table-scroll { max-width: 100%; overflow-x: auto; }
+.popular-row p { margin-bottom: 4px; font-weight: 700; }
+.popular-row { margin-bottom: 18px; }
+.popular-row progress { width: 100%; height: 15px; accent-color: #db8e4c; }
+.report-list { margin: 0 0 20px; }
+.report-list > div { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid #efdfcf; }
+.report-list dd { margin: 0; font-weight: 800; }
+@media (max-width: 850px) {
+    .report-stats { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .report-columns { grid-template-columns: 1fr; gap: 0; }
+}
+@media (max-width: 560px) {
+    .report-stats { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+    .report-stats > div,.report-panel { padding: 17px; }
+    .gallery-editor-panel,.adoption-editor { padding: 14px; }
+    .photo-editor-grid { grid-template-columns: 1fr; }
+    .calendar-toolbar .button { padding: 10px 12px; font-size: 14px; }
+    .statistics-filter { align-items: stretch; }
+    .statistics-filter .field { width: 100%; }
+    .statistics-filter .button { width: 100%; }
+}
+
+select:not([multiple]) {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 10px 40px 10px 12px;
+    background-image: url("../images/select-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px 8px;
+}
+
+.hero {
+    max-width: none;
+}
+
+.contact-layout {
+    align-items: stretch;
+}
+
+.contact-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-panel .button {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+#feedback-message {
+    height: 150px;
+    resize: none;
+    overflow-y: auto;
+}

@@ -1,0 +1,63 @@
+name: ulitsa-koshachya
+
+services:
+  app:
+    build: .
+    image: ulitsa-koshachya:pr4
+    init: true
+    restart: unless-stopped
+    environment:
+      SHELTER_ENV: production
+      SHELTER_HOST: 0.0.0.0
+      SHELTER_PORT: "8000"
+      SHELTER_DB: /app/data/shelter.sqlite3
+      SHELTER_UPLOADS_DIR: /app/data/uploads
+      SHELTER_SLOT_CAPACITY: ${SHELTER_SLOT_CAPACITY:-1}
+      SHELTER_PUBLIC_ORIGIN: https://${SITE_DOMAIN:?Укажите SITE_DOMAIN в .env.production}
+      SHELTER_ALLOWED_HOSTS: ${SITE_DOMAIN},localhost,127.0.0.1
+      SHELTER_SECURE_COOKIES: "1"
+      SHELTER_API_DOCS: "0"
+      # В этой конфигурации приложение не публикует порт: вход только через Caddy.
+      SHELTER_TRUSTED_PROXIES: "*"
+      SHELTER_LOG_LEVEL: ${SHELTER_LOG_LEVEL:-info}
+      WEATHER_USER_AGENT: ${WEATHER_USER_AGENT:-UlitsaKoshachya/4.0}
+    expose:
+      - "8000"
+    volumes:
+      - shelter-data:/app/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  proxy:
+    image: caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d
+    restart: unless-stopped
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?Укажите SITE_DOMAIN в .env.production}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  shelter-data:
+  caddy-data:
+  caddy-config:

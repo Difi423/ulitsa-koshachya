@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кошки и коты, которые ищут дом. Подбор по полу, возрасту и характеру.">
+    <title>Наши кошки и коты — Улица Кошачья</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">К содержимому</a>
+    <header class="site-header">
+        <a class="brand" href="index.html">
+            <img class="brand-logo" src="images/logo.png" width="76" height="76" alt="Котик под крышей с сердечком">
+            <span class="brand-text">
+                <span class="brand-name">Улица Кошачья</span>
+                <span class="brand-caption">Место, где начинается путь домой</span>
+            </span>
+        </a>
+        <nav class="main-nav" aria-label="Основное меню">
+            <a href="index.html">Главная</a>
+            <a href="catalog.html" aria-current="page">Наши кошки и коты</a>
+            <a href="application.html">Знакомство</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+    <main id="main-content" tabindex="-1">
+        <noscript><p class="notice">Для загрузки данных и работы форм включите JavaScript в браузере.</p></noscript>
+<div class="data-notification">
+<p id="data-status" class="small-text" role="status" aria-live="polite">Загружаем сведения о питомцах…</p>
+<button id="data-retry" class="button button-secondary" type="button" hidden>Повторить загрузку</button>
+</div>
+<header class="page-heading">
+            <p class="eyebrow">Знакомство начинается здесь</p>
+            <h1>Наши кошки и коты</h1>
+            <p>У каждого свой характер и своя история. Посмотрите карточки — возможно, здесь вас ждёт будущий друг.</p>
+        <div class="page-links"><a href="favorites.html">♡ Избранное (<span data-favorite-count>0</span>)</a><a href="adopted.html">Уже дома →</a></div></header>
+        <section class="filter-panel" aria-labelledby="filter-title">
+            <h2 id="filter-title">Подобрать питомца</h2>
+            <form class="filter-grid" id="catalog-filters">
+                <div class="field search-field">
+<label for="pet-search">Кличка или описание</label><input id="pet-search" name="query" type="search" maxlength="80" placeholder="Например, Персик или спокойный">
+</div>
+<div class="field">
+                    <label for="pet-sex">Пол</label>
+                    <select id="pet-sex" name="sex"><option value="all">Все питомцы</option><option value="male">Коты</option><option value="female">Кошки</option></select>
+                </div>
+                <div class="field">
+                    <label for="pet-age">Возраст</label>
+                    <select id="pet-age" name="age"><option value="all">Любой возраст</option>
+<option value="kitten">До 1 года</option>
+<option value="adult">От 1 до 5 лет</option>
+<option value="senior">Старше 5 лет</option></select>
+                </div>
+                <div class="field">
+                    <label for="pet-character">Характер</label>
+                    <select id="pet-character" name="character"><option value="all">Любой характер</option>
+<option value="calm">Спокойный</option>
+<option value="playful">Игривый</option>
+<option value="social">Общительный</option></select>
+                </div>
+                <div class="field">
+                    <label for="pet-sort">Сортировка</label>
+                    <select id="pet-sort" name="sort"><option value="default">По умолчанию</option>
+<option value="age-asc">Сначала младшие</option>
+<option value="age-desc">Сначала старшие</option>
+<option value="name">По кличке</option></select>
+                </div>
+                <div class="form-actions filter-actions">
+                    <button class="button" type="submit" disabled>Применить</button>
+                    <button class="button button-secondary" type="reset">Сбросить</button>
+                </div>
+            </form>
+        </section>
+        <section class="page-section" aria-labelledby="catalog-title">
+            <div class="section-heading">
+                <h2 id="catalog-title">Ждут семью</h2>
+                <p class="small-text" id="catalog-count" role="status" aria-live="polite">Загружаем список…</p>
+            </div>
+            <div class="pets-grid" id="catalog-grid">
+
+</div>
+        <p id="catalog-empty" class="empty-state" hidden>По этим условиям питомцев не найдено. Попробуйте изменить фильтры или сбросить их.</p></section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img class="footer-logo" src="images/logo.png" width="50" height="50" alt="Логотип приюта: кошка под крышей">
+                <p>Улица Кошачья — место, где начинается путь домой.</p>
+</div>
+            <nav class="footer-links" aria-label="Дополнительные страницы"><a href="contacts.html">Контакты и обратная связь</a><a href="adopted.html">Уже дома</a><a href="favorites.html">Избранное (<span data-favorite-count>0</span>)</a></nav>
+        </div>
+    </footer>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

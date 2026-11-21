@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Выберите питомца и подготовьте заявку на знакомство.">
+    <title>Знакомство — Улица Кошачья</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">К содержимому</a>
+    <header class="site-header">
+        <a class="brand" href="index.html">
+            <img class="brand-logo" src="images/logo.png" width="76" height="76" alt="Котик под крышей с сердечком">
+            <span class="brand-text">
+                <span class="brand-name">Улица Кошачья</span>
+                <span class="brand-caption">Место, где начинается путь домой</span>
+            </span>
+        </a>
+        <nav class="main-nav" aria-label="Основное меню">
+            <a href="index.html">Главная</a>
+            <a href="catalog.html">Наши кошки и коты</a>
+            <a href="application.html" aria-current="page">Знакомство</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+    <main id="main-content" tabindex="-1">
+        <noscript><p class="notice">Для загрузки данных и работы форм включите JavaScript в браузере.</p></noscript>
+<div class="data-notification">
+<p id="data-status" class="small-text" role="status" aria-live="polite">Загружаем сведения о питомцах…</p>
+<button id="data-retry" class="button button-secondary" type="button" hidden>Повторить загрузку</button>
+</div>
+<header class="page-heading">
+            <p class="eyebrow">Первый шаг к дружбе</p>
+            <h1>Заявка на знакомство</h1>
+            <p>Выберите питомца и удобный день. Расскажите о себе, чтобы подготовиться к знакомству.</p>
+        </header>
+        <div class="action-layout">
+            <form class="form-panel" aria-labelledby="application-title" id="application-form">
+                <h2 id="application-title">О вас и будущем друге</h2>
+                <p class="small-text">Поля с отметкой «обязательно» нужно заполнить.</p>
+                <fieldset>
+                    <legend>Выбор питомца</legend>
+                    <div class="field">
+                        <label for="chosen-pet">С кем хотите познакомиться? (обязательно)</label>
+                        <select id="chosen-pet" name="pet" required><option value="">Загружаем питомцев…</option></select>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Ваши контакты</legend>
+                    <div class="field">
+                        <label for="visitor-name">Имя (обязательно)</label>
+                        <input id="visitor-name" name="visitor_name" type="text" autocomplete="given-name" minlength="2" maxlength="60" placeholder="Например, Анна" required>
+                    </div>
+                    <div class="field">
+                            <label for="visitor-phone">Телефон (обязательно)</label>
+                            <input id="visitor-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Планируемый визит</legend>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="visit-date">Желаемая дата (обязательно)</label>
+                            <input id="visit-date" name="visit_date" type="date" required>
+                        </div>
+                        <div class="field">
+                            <label for="visit-time">Удобное время (обязательно)</label>
+                            <select id="visit-time" name="visit_time" required><option value="">Выберите время</option>
+<option value="12-14">12:00–14:00</option>
+<option value="14-16">14:00–16:00</option>
+<option value="16-18">16:00–18:00</option></select>
+                        </div>
+                    </div>
+                    <p id="availability-status" class="small-text" role="status" aria-live="polite">Выберите дату, чтобы проверить свободное время.</p><button id="availability-retry" type="button" class="text-button" hidden>Проверить время ещё раз</button><div class="field">
+                        <label for="visitor-comment">Расскажите о себе и условиях дома</label>
+                        <textarea id="visitor-comment" name="comment" rows="4" maxlength="1500" placeholder="Есть ли у вас другие животные? Какой питомец вам подходит?"></textarea>
+                    </div>
+                </fieldset>
+                <label class="checkbox-label" for="visit-confirm"><input id="visit-confirm" name="visit_confirm" type="checkbox" required><span>Я понимаю, что знакомство и время визита нужно согласовать с куратором (обязательно).</span></label>
+                <div class="form-actions">
+<button class="button" type="submit" disabled>Отправить заявку</button><button class="button button-secondary" type="reset">Очистить</button>
+</div>
+            <section id="application-form-result" class="form-result" role="status" aria-live="polite" hidden></section>
+</form>
+            <aside class="side-panel" aria-labelledby="meeting-title">
+                <h2 id="meeting-title">Как проходит знакомство</h2>
+                <ol class="steps">
+<li>Выберите питомца и прочитайте его историю.</li>
+<li>Расскажите куратору о себе и условиях дома.</li>
+<li>Согласуйте день и время встречи.</li>
+<li>Познакомьтесь с питомцем без спешки.</li>
+</ol>
+                <h3>Ваш будущий друг</h3>
+                <img class="selected-photo" src="images/logo.png" width="640" height="640" alt="Выбранный питомец" id="chosen-pet-photo" hidden>
+                <p id="chosen-pet-info">Загружаем сведения о питомце…</p>
+                <p>Остались вопросы? <a href="contacts.html">Напишите нам</a>.</p>
+            <section id="visit-weather" class="weather-panel" aria-labelledby="weather-title">
+            <h3 id="weather-title">Погода перед визитом</h3>
+            <p class="small-text">Санкт-Петербург · прогноз на выбранный день</p>
+            <p id="weather-status" role="status" aria-live="polite">Загружаем прогноз…</p>
+            <div id="weather-details" hidden>
+                <p id="weather-date" class="weather-date"></p>
+                <p id="weather-summary"></p>
+                <dl class="weather-facts">
+                    <div>
+<dt>Температура</dt>
+<dd id="weather-temperature"></dd>
+</div>
+                    <div>
+<dt>Вероятность осадков</dt>
+<dd id="weather-rain"></dd>
+</div>
+                </dl>
+            </div>
+            <button id="weather-retry" class="button button-secondary" type="button">Обновить прогноз</button>
+            <p class="small-text weather-source">Данные: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Прогноз может меняться.</p>
+        </section></aside>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img class="footer-logo" src="images/logo.png" width="50" height="50" alt="Логотип приюта: кошка под крышей">
+                <p>Улица Кошачья — место, где начинается путь домой.</p>
+</div>
+            <nav class="footer-links" aria-label="Дополнительные страницы"><a href="contacts.html">Контакты и обратная связь</a><a href="adopted.html">Уже дома</a><a href="favorites.html">Избранное (<span data-favorite-count>0</span>)</a></nav>
+        </div>
+    </footer>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
